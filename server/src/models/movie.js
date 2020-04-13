@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 const Movie = mongoose.model('Movie', {
   name: String,
-  releaseYear: Number
+  releaseYear: Number,
+  starring: String,
+  boxOffice: String
 });
 
 function findAll() {
@@ -13,20 +15,24 @@ function find(id) {
   return Movie.findOne({ _id: id }).exec();
 }
 
-function create(name, releaseYear) {
+function create(name, releaseYear, starring, boxOffice) {
   const movie = new Movie({
-    name: name,
-    releaseYear: releaseYear,
+    name,
+    releaseYear,
+    starring,
+    boxOffice
   });
 
   return movie.save();
 };
 
-async function update(id, name, releaseYear) {
+async function update(id, name, releaseYear, starring, boxOffice) {
 
   const movie = await find(id);  
   movie.name = name;
   movie.releaseYear = releaseYear;
+  movie.starring = starring;
+  movie.boxOffice = boxOffice;
   return movie.save();
 }
 

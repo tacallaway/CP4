@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Economy from '../views/Economy.vue'
-import Crime from '../views/Crime.vue'
+import Movies from '../views/Movies.vue'
+import Books from '../views/Books.vue'
 
 Vue.use(VueRouter)
 
@@ -13,14 +13,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/economy',
-    name: 'Economy',
-    component: Economy
+    path: '/movies',
+    name: 'Movies',
+    component: Movies
   },
   {
-    path: '/crime',
-    name: 'Crime',
-    component: Crime
+    path: '/books',
+    name: 'Books',
+    component: Books
   }
 ]
 

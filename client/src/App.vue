@@ -4,14 +4,14 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <router-link to="/">Most Livable</router-link>
-            <router-link to="/economy" class="spacer">Economy</router-link>
-            <router-link to="/crime">Crime</router-link>
+            <router-link to="/">Home</router-link>
+            <router-link to="/books" class="spacer">Books</router-link>
+            <router-link to="/movies">Movies</router-link>
           </ul>
         </div>
       </nav>
       <div class="homepage">
-        <h1>City Stats</h1>
+        <h1>Books And Movies Wiki</h1>
       </div>
     </div>
     <router-view />
