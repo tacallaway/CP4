@@ -17,7 +17,7 @@
     <router-view />
     <footer class="footer">
       <div class="container">
-        <span><a href="https://github.com/tacallaway/CityStats">https://github.com/tacallaway/CityStats</a></span>
+        <span><a href="https://github.com/tacallaway/CP4">https://github.com/tacallaway/CP4</a></span>
       </div>
     </footer>
   </div>
@@ -39,12 +39,16 @@
   padding: 30px;
 }
 
-#nav a.router-link-exact-active {
+a:visited {
   color: #42b983;
 }
 
+#nav a.router-link-exact-active {
+  color: yellow;
+}
+
 .bg-dark {
-  background-color: navy !important;
+  background-color: greenyellow !important;
 }
 
 .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
@@ -92,7 +96,7 @@ h1 {
 }
 
 .homepage {
-    background-color: cornflowerblue;
+    background-color: green;
     color: white;
     text-align: center;
     height: 100px;

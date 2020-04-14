@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Matrix page="Movies" :items="items" :headings="headings" @save-item="saveMovie" @delete-item="deleteMovie" />
+    <Matrix page="Movies" :items="items" :headings="headings" @save-item="saveMovie" @delete-item="deleteMovie" @refresh-data="getItems" />
   </div>
 </template>
 
@@ -36,12 +36,21 @@ export default {
     },
     async saveMovie(name, releaseYear, starring, boxOffice, id) {
       try {
-        await axios.put("/movies/" + id, {
-          name,
-          releaseYear,
-          starring,
-          boxOffice
-        });
+        if (id) {
+          await axios.put("/movies/" + id, {
+            name,
+            releaseYear,
+            starring,
+            boxOffice
+          });
+        } else {
+          await axios.post("/movies", {
+            name,
+            releaseYear,
+            starring,
+            boxOffice
+          });
+        }
       } catch (error) {
         console.log(error);
       }
