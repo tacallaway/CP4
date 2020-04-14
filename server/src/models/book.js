@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Book = mongoose.model('Book', {
   name: String,
-  releaseYear: Number,
+  releaseYear: String,
   author: String,
   genre: String
 });

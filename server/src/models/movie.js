@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Movie = mongoose.model('Movie', {
   name: String,
-  releaseYear: Number,
+  releaseYear: String,
   starring: String,
   boxOffice: String
 });
