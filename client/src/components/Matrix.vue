@@ -57,12 +57,14 @@ export default {
       this.editRow = id;
     },
     clickSave(field0, field1, field2, field3, field4) {
-      this.editRow = '';
       this.$emit('save-item', field0, field1, field2, field3, field4);
 
       if (this.addMode) {
-        this.$emit("refresh-data");
+        this.editRow = '-1';
         this.addMode = false;
+        this.$emit("refresh-data");
+      } else {
+        this.editRow = '';
       }
     },
     clickCancel() {
