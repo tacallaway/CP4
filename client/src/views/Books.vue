@@ -21,49 +21,34 @@ export default {
   },
   methods: {
     async getItems() {
-      try {
-        let response = await axios.get("/books");
-        this.items = response.data.map(book => [
-          book.name,
-          book.releaseYear,
-          book.author,
-          book.genre,
-          book._id
-        ]).sort((a, b) => b[1] - a[1]);
-      } catch (error) {
-        //console.log(error);
-        alert(error);
-      }
+      let response = await axios.get("/books");
+      this.items = response.data.map(book => [
+        book.name,
+        book.releaseYear,
+        book.author,
+        book.genre,
+        book._id
+      ]).sort((a, b) => b[1] - a[1]);
     },
     async saveBook(name, releaseYear, author, genre, id) {
-      try {
-        if (id) {
-          await axios.put("/books/" + id, {
-            name,
-            releaseYear,
-            author,
-            genre
-          });
-        } else {
-          await axios.post("/books/", {
-            name,
-            releaseYear,
-            author,
-            genre
-          });
-        }
-      } catch (error) {
-        //console.log(error);
-        alert(error);
+      if (id) {
+        await axios.put("/books/" + id, {
+          name,
+          releaseYear,
+          author,
+          genre
+        });
+      } else {
+        await axios.post("/books/", {
+          name,
+          releaseYear,
+          author,
+          genre
+        });
       }
     },
     async deleteBook(id) {
-      try {
-        await axios.delete("/books/" + id);
-      } catch (error) {
-        //console.log(error);
-        alert(error);
-      }
+      await axios.delete("/books/" + id);
     }
   },
   computed: {

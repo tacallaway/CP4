@@ -21,49 +21,34 @@ export default {
   },
   methods: {
     async getItems() {
-      try {
-        let response = await axios.get("/movies");
-        this.items = response.data.map(movie => [
-          movie.name,
-          movie.releaseYear,
-          movie.starring,
-          movie.boxOffice,
-          movie._id
-        ]).sort((a, b) => b[1] - a[1]);
-      } catch (error) {
-        //console.log(error);
-        alert(error);
-      }
+      let response = await axios.get("/movies");
+      this.items = response.data.map(movie => [
+        movie.name,
+        movie.releaseYear,
+        movie.starring,
+        movie.boxOffice,
+        movie._id
+      ]).sort((a, b) => b[1] - a[1]);
     },
     async saveMovie(name, releaseYear, starring, boxOffice, id) {
-      try {
-        if (id) {
-          await axios.put("/movies/" + id, {
-            name,
-            releaseYear,
-            starring,
-            boxOffice
-          });
-        } else {
-          await axios.post("/movies", {
-            name,
-            releaseYear,
-            starring,
-            boxOffice
-          });
-        }
-      } catch (error) {
-        //console.log(error);
-        alert(error);
+      if (id) {
+        await axios.put("/movies/" + id, {
+          name,
+          releaseYear,
+          starring,
+          boxOffice
+        });
+      } else {
+        await axios.post("/movies", {
+          name,
+          releaseYear,
+          starring,
+          boxOffice
+        });
       }
     },
     async deleteMovie(id) {
-      try {
-        await axios.delete("/movies/" + id);
-      } catch (error) {
-        //console.log(error);
-        alert(error);
-      }
+      await axios.delete("/movies/" + id);
     }
   },
   computed: {
