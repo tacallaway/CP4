@@ -31,7 +31,8 @@ export default {
           movie._id
         ]).sort((a, b) => b[1] - a[1]);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
+        alert(error);
       }
     },
     async saveMovie(name, releaseYear, starring, boxOffice, id) {
@@ -52,14 +53,16 @@ export default {
           });
         }
       } catch (error) {
-        console.log(error);
+        //console.log(error);
+        alert(error);
       }
     },
     async deleteMovie(id) {
       try {
         await axios.delete("/movies/" + id);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
+        alert(error);
       }
     }
   },
