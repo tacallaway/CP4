@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarNav">
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black">
+        <div class="collapse navbar-collapse" id="navbarNav" style="background-color: black">
           <ul class="navbar-nav">
             <router-link to="/">Home</router-link>
             <router-link to="/books" class="spacer">Books</router-link>
