@@ -31,7 +31,8 @@ export default {
           book._id
         ]).sort((a, b) => b[1] - a[1]);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
+        alert(error);
       }
     },
     async saveBook(name, releaseYear, author, genre, id) {
@@ -52,14 +53,16 @@ export default {
           });
         }
       } catch (error) {
-        console.log(error);
+        //console.log(error);
+        alert(error);
       }
     },
     async deleteBook(id) {
       try {
         await axios.delete("/books/" + id);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
+        alert(error);
       }
     }
   },
