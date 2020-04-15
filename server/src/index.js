@@ -11,12 +11,12 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-app.get('/movies', async (req, res) => {
+app.get('/api/movies', async (req, res) => {
   const movies = await dbMovies.findAll();
   res.send(movies);
 });
 
-app.post('/movies', async (req, res) => {
+app.post('/api/movies', async (req, res) => {
   try {
     const movie = await dbMovies.create(
       req.body.name,
@@ -32,12 +32,12 @@ app.post('/movies', async (req, res) => {
   }
 });
 
-app.get('/movies/:id', async (req, res) => {
+app.get('/api/movies/:id', async (req, res) => {
   const movie = await dbMovies.find(req.params.id);
   res.send(movie);
 })
 
-app.put('/movies/:id', async (req, res) => {
+app.put('/api/movies/:id', async (req, res) => {
   try {
     const movie = await dbMovies.update(
       req.params.id,
@@ -54,7 +54,7 @@ app.put('/movies/:id', async (req, res) => {
   }
 });
 
-app.delete('/movies/:id', async (req, res) => {
+app.delete('/api/movies/:id', async (req, res) => {
   try {
     await dbMovies.remove(req.params.id);
       
@@ -65,12 +65,12 @@ app.delete('/movies/:id', async (req, res) => {
   }
 });
 
-app.get('/books', async (req, res) => {
+app.get('/api/books', async (req, res) => {
   const books = await dbBooks.findAll();
   res.send(books);
 });
 
-app.post('/books', async (req, res) => {
+app.post('/api/books', async (req, res) => {
   try {
     const book = await dbBooks.create(
       req.body.name,
@@ -86,12 +86,12 @@ app.post('/books', async (req, res) => {
   }
 });
 
-app.get('/books/:id', async (req, res) => {
+app.get('/api/books/:id', async (req, res) => {
   const book = await dbBooks.find(req.params.id);
   res.send(book);
 })
 
-app.put('/books/:id', async (req, res) => {
+app.put('/api/books/:id', async (req, res) => {
   try {
     const book = await dbBooks.update(
       req.params.id,
@@ -108,7 +108,7 @@ app.put('/books/:id', async (req, res) => {
   }
 });
 
-app.delete('/books/:id', async (req, res) => {
+app.delete('/api/books/:id', async (req, res) => {
   try {
     await dbBooks.remove(req.params.id);
       
