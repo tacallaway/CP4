@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     async getItems() {
-      let response = await axios.get("/movies");
+      let response = await axios.get("/api/movies");
       this.items = response.data.map(movie => [
         movie.name,
         movie.releaseYear,
@@ -32,14 +32,14 @@ export default {
     },
     async saveMovie(name, releaseYear, starring, boxOffice, id) {
       if (id) {
-        await axios.put("/movies/" + id, {
+        await axios.put("/api/movies/" + id, {
           name,
           releaseYear,
           starring,
           boxOffice
         });
       } else {
-        await axios.post("/movies", {
+        await axios.post("/api/movies", {
           name,
           releaseYear,
           starring,
@@ -48,7 +48,7 @@ export default {
       }
     },
     async deleteMovie(id) {
-      await axios.delete("/movies/" + id);
+      await axios.delete("/api/movies/" + id);
     }
   },
   computed: {

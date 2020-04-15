@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     async getItems() {
-      let response = await axios.get("/books");
+      let response = await axios.get("/api/books");
       this.items = response.data.map(book => [
         book.name,
         book.releaseYear,
@@ -32,14 +32,14 @@ export default {
     },
     async saveBook(name, releaseYear, author, genre, id) {
       if (id) {
-        await axios.put("/books/" + id, {
+        await axios.put("/api/books/" + id, {
           name,
           releaseYear,
           author,
           genre
         });
       } else {
-        await axios.post("/books/", {
+        await axios.post("/api/books/", {
           name,
           releaseYear,
           author,
@@ -48,7 +48,7 @@ export default {
       }
     },
     async deleteBook(id) {
-      await axios.delete("/books/" + id);
+      await axios.delete("/api/books/" + id);
     }
   },
   computed: {
