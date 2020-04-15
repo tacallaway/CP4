@@ -82,6 +82,7 @@ export default {
     clickAdd() {
       this.items.unshift(['', '', '', '', '']);
       this.addMode = true;
+      this.editRow = '';
     }
   }
 };
